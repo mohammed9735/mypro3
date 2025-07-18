@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modern Man - متجر الملابس الرجالية</title>
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      direction: rtl;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    /* شريط الإشعار */
+    .top-notice {
+      background-color: #f0a500;
+      color: #111;
+      text-align: center;
+      padding: 8px 0;
+      font-weight: bold;
+      animation: blink 2s infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* الهيدر */
+    .main-header {
+      background-color: #111;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      flex-wrap: wrap;
+    }
+    .logo h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+    .nav-bar ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+      gap: 15px;
+    }
+    .nav-bar a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    .nav-bar a:hover {
+      color: #f0a500;
+    }
+
+    /* قسم الفيديو */
+    .video-section {
+      position: relative;
+      width: 100%;
+      max-height: 500px;
+      overflow: hidden;
+    }
+    .video-section video {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.3);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 28px;
+      font-weight: bold;
+      text-align: center;
+      padding: 0 10px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.6);
+    }
+
+    /* المنتجات */
+    .products {
+      padding: 30px 15px;
+      text-align: center;
+    }
+    .products h3 {
+      font-size: 24px;
+      margin-bottom: 25px;
+      color: #111;
+    }
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .product-card {
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 15px;
+      transition: transform 0.3s;
+    }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+    .product-card img {
+      width: 100%;
+      border-radius: 5px;
+    }
+    .product-card h4 {
+      margin: 10px 0 5px;
+      font-size: 18px;
+    }
+    .product-card p {
+      margin: 0 0 10px;
+      color: #555;
+    }
+    .product-card button {
+      background: #111;
+      color: white;
+      border: none;
+      padding: 8px;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .product-card button:hover {
+      background: #333;
+    }
+
+    /* من نحن */
+    .about {
+      background-color: #fff;
+      padding: 30px 15px;
+      text-align: center;
+      max-width: 800px;
+      margin: 30px auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .about h2 {
+      margin-bottom: 15px;
+      color: #111;
+      font-size: 22px;
+    }
+    .about p {
+      line-height: 1.7;
+      color: #555;
+      font-size: 16px;
+    }
+
+    /* الفوتر */
+    .main-footer {
+      background-color: #111;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+    .main-footer a {
+      color: #f0a500;
+      text-decoration: none;
+    }
+    .main-footer a:hover {
+      color: #ffb703;
+    }
+
+    /* تجاوب خاص للجوال */
+    @media (max-width: 600px) {
+      .logo h1 {
+        font-size: 20px;
+      }
+      .nav-bar ul {
+        justify-content: center;
+      }
+      .video-overlay {
+        font-size: 20px;
+      }
+      .products h3 {
+        font-size: 20px;
+      }
+      .product-card h4 {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- إشعار -->
+  <div class="top-notice">
+    خصم خاص: احصل على 20% على جميع القمصان اليوم فقط!
+  </div>
+
+  <!-- الهيدر -->
+  <header class="main-header">
+    <div class="logo">
+      <h1>Modern Man</h1>
+    </div>
+    <nav class="nav-bar">
+      <ul>
+        <li><a href="#home">الرئيسية</a></li>
+        <li><a href="#products">المنتجات</a></li>
+        <li><a href="#about">من نحن</a></li>
+        <li><a href="#">اتصل بنا</a></li>
+        <li><a href="#home">🔝 العودة للرئيسية</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- الفيديو -->
+  <section id="home" class="video-section">
+    <video src="bb.mp4" autoplay muted loop playsinline></video>
+    <div class="video-overlay">اكتشف الأناقة العصرية مع Modern Man</div>
+  </section>
+
+  <!-- المنتجات -->
+  <main>
+    <section id="products" class="products">
+      <h3>منتجاتنا المميزة</h3>
+      <div class="product-grid">
+        <div class="product-card">
+          <img src="https://via.placeholder.com/220x220" alt="قميص رجالي" />
+          <h4>قميص كلاسيكي</h4>
+          <p>150 ريال</p>
+          <button>أضف إلى السلة</button>
+        </div>
+        <div class="product-card">
+          <img src="https://via.placeholder.com/220x220" alt="حذاء رجالي" />
+          <h4>حذاء رسمي</h4>
+          <p>300 ريال</p>
+          <button>أضف إلى السلة</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- من نحن -->
+    <section id="about" class="about">
+      <h2>من نحن</h2>
+      <p>
+        متجر Modern Man هو وجهتك الأولى لأحدث صيحات الموضة الرجالية.  
+        نقدم منتجات عالية الجودة بأسعار تنافسية، مع الحرص على مواكبة آخر الصيحات لتناسب جميع الأذواق.  
+        هدفنا هو أن يشعر كل رجل بالأناقة والثقة في كل مناسبة.
+      </p>
+    </section>
+  </main>
+
+  <!-- الفوتر -->
+  <footer class="main-footer">
+    <p>© 2025 Modern Man - جميع الحقوق محفوظة</p>
+    <p>
+      تابعنا على 
+      <a href="#">فيسبوك</a> | 
+      <a href="#">إنستجرام</a> | 
+      <a href="#">تويتر</a>
+    </p>
+  </footer>
+
+  <script>
+    // رسالة عند الضغط على أزرار المنتجات
+    const buttons = document.querySelectorAll('.product-card button');
+    buttons.forEach(btn => {
+      btn.onclick = () => alert("✅ تم إضافة المنتج إلى السلة!");
+    });
+  </script>
+</body>
+</html>
